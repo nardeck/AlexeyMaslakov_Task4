@@ -1,25 +1,36 @@
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
-public class Bike2 extends Bike implements Movable {
+public class CityBike extends Bike implements Movable {
 
     protected double speed;
     protected double diameterOfWheels;
 
-    public Bike2() {
+    public CityBike() {
     }
 
-    public Bike2(String color, String nameOfTheOwner, Brand brand, int numberOfSpeeds, boolean moving, double diameterOfWheels, Date dateOfRelease) {
-        super(color, nameOfTheOwner, brand, numberOfSpeeds, moving,dateOfRelease);
+    public CityBike(String color, String nameOfTheOwner, Brand brand, int numberOfSpeeds, boolean moving, double diameterOfWheels, Date dateOfRelease) {
+        super(color, nameOfTheOwner, brand, numberOfSpeeds, moving, dateOfRelease);
         this.diameterOfWheels = diameterOfWheels;
     }
 
     void methodOfDriving() {
+        if (numberOfSpeeds > 21) {
+            System.out.println("для данного байка количество передач не должно превышать 21");
+        }
+        if (numberOfSpeeds < 0) {
+            System.out.println("номер передачи не может быть отрицательным");
+        }
         System.out.println(numberOfSpeeds <= 11 ? "Sitting position" : "Standing position");
     }
 
     public void move() {
+        if (numberOfSpeeds > 21) {
+            System.out.println("для данного байка количество передач не должно превышать 21");
+        }
+        if (numberOfSpeeds < 0) {
+            System.out.println("номер передачи не может быть отрицательным");
+        }
         System.out.println(numberOfSpeeds > 1 ? "I can move on this Bike2" : "I stopped the Bike2");
     }
 
@@ -34,6 +45,12 @@ public class Bike2 extends Bike implements Movable {
     }
 
     void speedBike(double wayOfTime) {
+        if (numberOfSpeeds > 21) {
+            System.out.println("для данного байка количество передач не должно превышать 21");
+        }
+        if (numberOfSpeeds < 0) {
+            System.out.println("номер передачи не может быть отрицательным");
+        }
         double way = wayOfTime * speed;
         speed = numberOfSpeeds * 2.3;
         System.out.println("средняя скорость Bike2 на данной передаче равна -  " + speed + "км/ч");
@@ -42,7 +59,6 @@ public class Bike2 extends Bike implements Movable {
 
     public void greaseAchain() {
         System.out.println("цепь смазана");
-
     }
 
     @Override
@@ -50,8 +66,8 @@ public class Bike2 extends Bike implements Movable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Bike2 bike2 = (Bike2) o;
-        return Double.compare(bike2.speed, speed) == 0 && Double.compare(bike2.diameterOfWheels, diameterOfWheels) == 0;
+        CityBike cityBike = (CityBike) o;
+        return Double.compare(cityBike.speed, speed) == 0 && Double.compare(cityBike.diameterOfWheels, diameterOfWheels) == 0;
     }
 
     @Override
@@ -59,10 +75,10 @@ public class Bike2 extends Bike implements Movable {
         return Objects.hash(super.hashCode(), speed, diameterOfWheels);
     }
 
-    StringBuilder stringBuilder = new StringBuilder("Bike2{");
-
     @Override
     public String toString() {
+        StringBuilder stringBuilder;
+        stringBuilder = new StringBuilder("Bike2{");
         stringBuilder.append("color='").append(color).append('\'').append(", nameOfTheOwner='").append(nameOfTheOwner).append('\'').append(", numberOfSpeeds=").append(numberOfSpeeds).append(", moving=").append(moving).append(", speed=").append(speed).append(", diameterOfWheels=").append(diameterOfWheels).append('}');
         System.out.println(stringBuilder);
         return "";

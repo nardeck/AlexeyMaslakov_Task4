@@ -3,7 +3,6 @@ import java.util.Objects;
 
 public abstract class Bike implements Movable {
 
-
     protected String color;
     protected String nameOfTheOwner;
     protected Brand brand;
@@ -11,12 +10,8 @@ public abstract class Bike implements Movable {
     protected boolean moving;
     protected Date dayOfRelease;
 
-    StringBuilder stringBuilder = new StringBuilder("Bike{");
-
-
     public Bike() {
     }
-
 
     public Bike(String color, String nameOfTheOwner, Brand brand, int numberOfSpeeds, boolean moving, Date dayOfRelease) {
 
@@ -26,7 +21,6 @@ public abstract class Bike implements Movable {
         this.numberOfSpeeds = numberOfSpeeds;
         this.moving = moving;
         this.dayOfRelease = dayOfRelease;
-
     }
 
     abstract void methodOfDriving();
@@ -55,11 +49,11 @@ public abstract class Bike implements Movable {
 
     @Override
     public String toString() {
+        StringBuilder stringBuilder;
+        stringBuilder = new StringBuilder("Bike{");
         stringBuilder.append("color='").append(color).append('\'').append(", nameOfTheOwner='").append(nameOfTheOwner).append('\'').append(", brand=").append(brand).append(", numberOfSpeeds=").append(numberOfSpeeds).append(", moving=").append(moving).append(", dayOfRelease=").append(dayOfRelease).append('}');
         System.out.println(stringBuilder);
         return "";
-
-
     }
 }
 

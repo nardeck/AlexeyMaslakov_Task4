@@ -8,11 +8,9 @@ public enum Brand {
     FUJI("Inari", "Japan", 2020),
     LTD("Crossfire 840", "Germany", 2021);
 
-    StringBuilder stringBuilder = new StringBuilder("Brand{");
     private String model;
     private String countryOfManufacture;
     private int yearOfRelease;
-
 
     Brand(String model, String countryOfManufacture, int yearOfRelease) {
         this.model = model;
@@ -22,6 +20,8 @@ public enum Brand {
 
     @Override
     public String toString() {
+        StringBuilder stringBuilder;
+        stringBuilder = new StringBuilder("Brand{");
         stringBuilder.append("name='").append(model).append('\'').append(", countryOfManufacture='").append(countryOfManufacture).append('\'').append(", yearOfRelease=").append(yearOfRelease).append('}');
         System.out.println(stringBuilder);
         return "";
@@ -41,7 +41,6 @@ public enum Brand {
 
     public void setCountryOfManufacture(String countryOfManufacture) {
         this.countryOfManufacture = countryOfManufacture;
-
     }
 
     public int getDate() {

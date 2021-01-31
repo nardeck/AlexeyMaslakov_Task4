@@ -1,18 +1,18 @@
 import java.util.Objects;
 
-public class Bike3 implements Movable {
+public class HybridBike implements Movable {
 
-    public final String TIPEOFBIKE = "Mountain";
-    StringBuilder stringBuilder = new StringBuilder("Bike3{TIPEOFBIKE='");
+    public final String TIPEOFBIKE = "Mountain-Road";
+
     private String materialOfFrame;
     private double weighOfBike;
 
-    public Bike3() {
+    public HybridBike() {
     }
 
     @Override
     public void move() {
-        System.out.println("I can only move on this bike on the mountain");
+        System.out.println("I can move up the mountains and down the road.");
     }
 
     public String getMaterialOfFrame() {
@@ -33,6 +33,8 @@ public class Bike3 implements Movable {
 
     @Override
     public String toString() {
+        StringBuilder stringBuilder;
+        stringBuilder = new StringBuilder("Bike3{TIPEOFBIKE='");
         stringBuilder.append(TIPEOFBIKE).append(", materialOfFrame='").append(materialOfFrame).append(", weighOfBike=").append(weighOfBike).append('}');
         System.out.println(stringBuilder);
         return "";
@@ -42,8 +44,8 @@ public class Bike3 implements Movable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Bike3 bike3 = (Bike3) o;
-        return Double.compare(bike3.weighOfBike, weighOfBike) == 0 && Objects.equals(materialOfFrame, bike3.materialOfFrame);
+        HybridBike hybridBike = (HybridBike) o;
+        return Double.compare(hybridBike.weighOfBike, weighOfBike) == 0 && Objects.equals(materialOfFrame, hybridBike.materialOfFrame);
     }
 
     @Override

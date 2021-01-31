@@ -1,39 +1,41 @@
 import java.util.Date;
 import java.util.Objects;
 
-public class Bike1 extends Bike implements Movable {
-
+public class MountainBike extends Bike implements Movable {
 
     protected double diameterOfWheels;
     protected double speed;
-    StringBuilder stringBuilder = new StringBuilder("Bike1{");
 
-
-    public Bike1() {
+    public MountainBike() {
     }
 
-    public Bike1(String color, String nameOfTheOwner, Brand brand, int numberOfSpeeds, boolean moving,
-                 double diameterOfWheels, Date dayOfRelease) {
+    public MountainBike(String color, String nameOfTheOwner, Brand brand, int numberOfSpeeds, boolean moving,
+                        double diameterOfWheels, Date dayOfRelease) {
         super(color, nameOfTheOwner, brand, numberOfSpeeds, moving, dayOfRelease);
 
+        this.diameterOfWheels = diameterOfWheels;
+    }
+
+    public void move() {
         if (numberOfSpeeds > 27) {
             System.out.println("для данного байка количество передач не должно превышать 27");
         }
         if (numberOfSpeeds < 0) {
             System.out.println("номер передачи не может быть отрицательным");
         }
-        this.diameterOfWheels = diameterOfWheels;
 
-
-    }
-
-    public void move() {
         if (numberOfSpeeds > 0) {
             System.out.println("I can move");
         } else System.out.println("I stopped the Bike1");
     }
 
     void methodOfDriving() {
+        if (numberOfSpeeds > 27) {
+            System.out.println("для данного байка количество передач не должно превышать 27");
+        }
+        if (numberOfSpeeds < 0) {
+            System.out.println("номер передачи не может быть отрицательным");
+        }
         if (numberOfSpeeds <= 16) {
             System.out.println("Sitting position");
         } else System.out.println("Standing position");
@@ -52,6 +54,12 @@ public class Bike1 extends Bike implements Movable {
     }
 
     void speedBike() {
+        if (numberOfSpeeds > 27) {
+            System.out.println("для данного байка количество передач не должно превышать 27");
+        }
+        if (numberOfSpeeds < 0) {
+            System.out.println("номер передачи не может быть отрицательным");
+        }
         speed = numberOfSpeeds * 1.7;
         System.out.println("средняя скорость Bike1 на данной передаче равна -  " + speed + "км/ч");
     }
@@ -69,8 +77,8 @@ public class Bike1 extends Bike implements Movable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Bike1 bike1 = (Bike1) o;
-        return Double.compare(bike1.diameterOfWheels, diameterOfWheels) == 0 && Double.compare(bike1.speed, speed) == 0;
+        MountainBike mountainBike = (MountainBike) o;
+        return Double.compare(mountainBike.diameterOfWheels, diameterOfWheels) == 0 && Double.compare(mountainBike.speed, speed) == 0;
     }
 
     @Override
@@ -78,12 +86,12 @@ public class Bike1 extends Bike implements Movable {
         return Objects.hash(diameterOfWheels, speed);
     }
 
-
     public String toString() {
+        StringBuilder stringBuilder;
+        stringBuilder = new StringBuilder("Bike1{");
         stringBuilder.append("color='").append(color).append(", nameOfTheOwner='").append(nameOfTheOwner).append(", numberOfSpeeds=").append(numberOfSpeeds).append(", moving=").append(moving).append(", diameterOfWheels=").append(diameterOfWheels);
         System.out.println(stringBuilder);
         return "";
-
     }
 }
 

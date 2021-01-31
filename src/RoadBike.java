@@ -1,16 +1,16 @@
 import java.util.Objects;
 
-public class Bike4 implements Movable {
+public class RoadBike implements Movable {
 
     public final String TIPEOFBIKE = "Road";
-    StringBuilder stringBuilder = new StringBuilder("Bike4{TIPEOFBIKE='");
+
     private String materialOfFrame;
     private double weighOfBike;
 
-    public Bike4() {
+    public RoadBike() {
     }
 
-    public Bike4(double weighOfBike) {
+    public RoadBike(double weighOfBike) {
         this.weighOfBike = weighOfBike;
     }
 
@@ -35,8 +35,8 @@ public class Bike4 implements Movable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Bike4 bike4 = (Bike4) o;
-        return Double.compare(bike4.weighOfBike, weighOfBike) == 0 && Objects.equals(materialOfFrame, bike4.materialOfFrame);
+        RoadBike roadBike = (RoadBike) o;
+        return Double.compare(roadBike.weighOfBike, weighOfBike) == 0 && Objects.equals(materialOfFrame, roadBike.materialOfFrame);
     }
 
     @Override
@@ -44,9 +44,10 @@ public class Bike4 implements Movable {
         return Objects.hash(TIPEOFBIKE, materialOfFrame, weighOfBike);
     }
 
-
     @Override
     public String toString() {
+        StringBuilder stringBuilder;
+        stringBuilder = new StringBuilder("Bike4{TIPEOFBIKE='");
         stringBuilder.append(TIPEOFBIKE).append(", materialOfFrame='").append(materialOfFrame).append(", weighOfBike=").append(weighOfBike).append('}');
         System.out.println(stringBuilder);
         return "";
